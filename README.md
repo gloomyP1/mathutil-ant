@@ -11,4 +11,4 @@ build tool
 * ...
 
 ### Connect me via hoangphuc29290606@gmail.com
-#### Copyright &#169,2023 gloomyP1
+#### Copyright&#169,2023 gloomyP1
