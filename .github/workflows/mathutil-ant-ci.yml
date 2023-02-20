@@ -1,12 +1,12 @@
-name: Demonstation of using CI with GitHub Actions, Ant and JUnit | © 2020 by gloomyP1
+name: Practice CI with GitHub Actions using Ant and JUnit | © 2023 by gloomyP1
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the main branch
 on:
   push:
-    branches: [ action ] # Lấy code từ nhánh main nếu có ai push code lên  
+    branches: [ main ] # Lấy code từ nhánh main nếu có ai push code lên  
   pull_request:
-    branches: [ action ] # Lấy code từ nhánh main nếu có ai gửi pull request  
+    branches: [ main ] # Lấy code từ nhánh main nếu có ai gửi pull request  
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs: # Những công việc dev làm thường ngày: lấy code, build, chạy test, đóng gói, gửi build...
@@ -22,7 +22,7 @@ jobs: # Những công việc dev làm thường ngày: lấy code, build, chạy
         uses: actions/checkout@v3
 
       - name: Set up JDK 1.8 
-        uses: actions/setup-java@v2 # Khai báo cần dùng JDK để build
+        uses: actions/setup-java@v1 # Khai báo cần dùng JDK để build
         with:
           java-version: 1.8 # Khai báo sử dụng phiên bản JDK 1.8 để build
      
@@ -35,7 +35,7 @@ jobs: # Những công việc dev làm thường ngày: lấy code, build, chạy
       - name: Make hyperlink to jar-war file # Tạo hyperlink để download build 
         uses: actions/upload-artifact@v1
         with:
-          name: DOWNLOAD-JAR-WAR-HERE # Bản build được đánh version 1.0-SNAPSHOT
+          name: 1.0-SNAPSHOT.jar # Bản build được đánh version 1.0-SNAPSHOT
           path: staging
 
 # End of CI workflow file
